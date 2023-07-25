@@ -76,6 +76,10 @@ SELECT  Primary_Type, COUNT(ID) AS Overall_cases FROM crime_us
 GROUP BY Primary_Type
 ORDER BY Overall_cases DESC;
 
+-- Check the number of crimes for which arrests were made.
+SELECT COUNT(Primary_Type), Arrest FROM crime_rate.crime_us
+GROUP BY Arrest;
+
 -- Apply 1NF normalization to the dataset provided.
  SELECT ID, Case_Number, Primary_Type, Location_description, Arrest, 
 SUBSTRING_INDEX((SUBSTRING_INDEX(Description, ',', 1)), ',',-1) AS DESCRIPTION_NEW
